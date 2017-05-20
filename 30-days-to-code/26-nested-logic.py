@@ -1,9 +1,9 @@
 import sys, datetime
 
 def get_fine(ret, due):
-        fine = -1
-  	ret_date = datetime.date(ret[2], ret[1], ret[0])		
-  	due_date = datetime.date(due[2], due[1], due[0])		
+	fine = -1
+	ret_date = datetime.date(ret[2], ret[1], ret[0])		
+	due_date = datetime.date(due[2], due[1], due[0])		
 	if (ret_date <= due_date):
 		fine = 0
 	else: 	
@@ -12,7 +12,7 @@ def get_fine(ret, due):
 			if (ret_date.month == due_date.month):
 				fine = 15 * diff.days
 			else:
-				fine = 500 * diff.months
+				fine = 500 * abs(ret_date.month - due_date.months)
 		else:
 			fine = 10000
 	return fine
