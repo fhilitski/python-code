@@ -12,7 +12,7 @@ def get_fine(ret, due):
 			if (ret_date.month == due_date.month):
 				fine = 15 * diff.days
 			else:
-				fine = 500 * abs(ret_date.month - due_date.months)
+				fine = 500 * abs(ret_date.month - due_date.month)
 		else:
 			fine = 10000
 	return fine
