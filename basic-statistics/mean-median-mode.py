@@ -1,9 +1,11 @@
-#!/usr/local/bin/python3.5
+#!/usr/local/bin/python3
 
+# calculating mean of the array
 def mean(array_in):
 	result = sum(array_in)/len(array_in)
 	return result
 
+# calculating median of the array_in
 def median(array_in):
 	result = 0
 	sorted_in = array_in
@@ -19,17 +21,18 @@ def median(array_in):
 		result = (sorted_in[index_median] + sorted_in[index_median - 1])/2
 	return result
 
+
+# calculating mode of the array_in
 def mode(array_in):
 	unique_in = set(array_in)
 	n_unique = len(unique_in)
-	count = [0 for i in range(n_unique)]
-	
-	for val in array_in:
-		i = unique_in.index(val)
-		count[i] = count[i] + 1
-
-	max_count = array_in[count.max()]
-	return array_in[count.max()]
+	count = 0
+	for i in unique_in:
+		this_count = array_in.count(i)
+		if this_count > count:
+			count = this_count
+			mode = i
+	return mode
 
 	
 		
