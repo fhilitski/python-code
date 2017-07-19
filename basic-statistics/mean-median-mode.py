@@ -27,11 +27,16 @@ def mode(array_in):
 	unique_in = set(array_in)
 	n_unique = len(unique_in)
 	count = 0
+	mode = array_in[0]
 	for i in unique_in:
 		this_count = array_in.count(i)
 		if this_count > count:
 			count = this_count
 			mode = i
+		elif (this_count == count):
+			mode = mode if (mode < i) else i
+
+
 	return mode
 
 	
