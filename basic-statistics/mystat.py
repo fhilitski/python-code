@@ -4,6 +4,8 @@
 # mystat.py			|
 #--------------------------------
 
+import math
+
 # calculating mean of the array_in
 def mean(array_in):
 	result = sum(array_in)/len(array_in)
@@ -48,6 +50,12 @@ def weighted_mean(values_in, weights_in):
 	sum_w = sum(weights_in)
 	return sum_vw/sum_w
 
+# calculation of standard deviation of the values in values_in list
+def standard_deviation(values_in):
+	mu = mean(values_in)
+	dev2 = sum([(val - mu)**2 for val in values_in])
+	sigma2 = dev2 / len(values_in)
+	return math.sqrt(sigma2)
 #-------------------------------------------
 #|  end function defs                      |
 #-------------------------------------------
