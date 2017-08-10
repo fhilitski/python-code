@@ -56,6 +56,33 @@ def standard_deviation(values_in):
 	dev2 = sum([(val - mu)**2 for val in values_in])
 	sigma2 = dev2 / len(values_in)
 	return math.sqrt(sigma2)
+
+# calculating quartile q_in of the values in values_in list
+# q_in can be 1, 2, 3
+#The quartiles of an ordered data set slit the data set into  equal groups:
+# Q1 =  middle number between the smallest number in a data set and its median.
+# Q2 = the median ( percentile) of the data set.
+# Q3 = middle number between a data set's median and its largest number.
+def quartile(values_in, q_in):
+	sorted_in = values_in
+	sorted_in.sort()
+
+	l = len(values_in)
+
+	q2 = median(sorted_in)
+	if l%2 == 1:
+		index_q2 = sorted_in.index(q2)
+		bottom_index = index_q2
+		top_index = index_q2+1
+	else:	
+		index_q2 = int(l/2)
+		top_index = index_q2
+		bottom_index = index_q2
+	
+	q1 = median(sorted_in[:bottom_index])
+	q3 = median(sorted_in[top_index:])
+	return [q1, q2, q3]
+
 #-------------------------------------------
 #|  end function defs                      |
 #-------------------------------------------
