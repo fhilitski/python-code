@@ -1,17 +1,21 @@
 #--------------------------------
-# Statistical functions		|
+#| Statistical functions	|
 #--------------------------------
-# mystat.py			|
+#| mystat.py			|
 #--------------------------------
 
 import math
 
-# calculating mean of the array_in
+# mean(list array_in)
+# returns mean of the array_in
+# mean aka the average, aka sum/N
 def mean(array_in):
 	result = sum(array_in)/len(array_in)
 	return result
 
-# calculating median of the array_in
+# median(list array_in)
+# returns median of the array_in
+# median is the number such that 50% are greater and 50% are smaller than it in the list
 def median(array_in):
 	result = 0
 	sorted_in = array_in
@@ -28,7 +32,9 @@ def median(array_in):
 	return result
 
 
-# calculating mode of the array_in
+# mode(list array_in)
+# returns the mode of the array_in
+# mode is the element with the highest frequency
 def mode(array_in):
 	unique_in = set(array_in)
 	n_unique = len(unique_in)
@@ -43,6 +49,7 @@ def mode(array_in):
 			mode = mode if (mode < i) else i
 	return mode
 
+# weighted_mean(list values_in, list weights_in)
 # calculating weighted mean of values values_in with weights_in
 def weighted_mean(values_in, weights_in):
 	vw = [v*w for v,w in zip(values_in, weights_in)]
